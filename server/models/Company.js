@@ -11,20 +11,20 @@ Company.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        Name: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
         },
-        ConstDate: {
+        const_date: {
             type: DataTypes.DATEONLY,
             allowNull: false,
         },
-        Type: {
+        type: {
             type: DataTypes.ENUM('Distribuidor', 'Mayorista', 'Usuario Final'),
             allowNull: false,
         },
-        Comments: {
+        comments: {
             type: DataTypes.TEXT,
             allowNull: true,
         },
