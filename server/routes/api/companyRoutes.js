@@ -1,5 +1,17 @@
 const router = require('express').Router();
-const Company = require('../../models/Company');
+const {
+    addCompany,
+    updateCompany,
+    deleteCompany,
+} = require('../../controllers/companyControllers');
+
+router.route('/').post(addCompany);
+
+router.route('/:id').put(updateCompany).delete(deleteCompany);
+
+module.exports = router;
+
+/*const Company = require('../../models/Company');
 
 router.post('/', async (req, res) => {
     try {
@@ -42,4 +54,4 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = router;*/

@@ -1,5 +1,11 @@
 const router = require('express').Router();
-const Company = require('../models/Company');
+const { getAllCompanies, } = require('../controllers/homeControllers');
+
+router.route('/').get(getAllCompanies);
+
+module.exports = router;
+
+/*const Company = require('../models/Company');
 
 router.get('/', async (req, res) => {
     try {
@@ -10,4 +16,4 @@ router.get('/', async (req, res) => {
     }
 });
 
-module.exports = router;
+module.exports = router;*/
