@@ -22,7 +22,7 @@ const AddCompanyForm = () => {
         } if (!companyFormData.const_date || companyFormData.const_date === 'dd/mm/yyyy') {
             setRequiredField("Por favor ingrese la fecha de constitución");
             return;
-        } if (companyFormData.const_date.toLocaleString > Date.now) {
+        } if (new Date(companyFormData.const_date) > new Date()) {
             setRequiredField("Por favor ingrese una fecha válida (el día de hoy o anterior)");
             return;
         } if (!companyFormData.type || companyFormData.type === "") {

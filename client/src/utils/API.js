@@ -1,5 +1,5 @@
 export const getAllCompanies = () => {
-    return fetch('/', {
+    return fetch('/api/companies', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

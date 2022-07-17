@@ -19,6 +19,9 @@ Company.init(
         const_date: {
             type: DataTypes.DATE,
             allowNull: false,
+            get: function () {
+                return this.getDataValue('const_date').toLocaleDateString('es-MX', { timeZone: 'UTC' });
+            }
         },
         type: {
             type: DataTypes.ENUM('Distribuidor', 'Mayorista', 'Usuario Final'),
