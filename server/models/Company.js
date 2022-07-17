@@ -17,7 +17,7 @@ Company.init(
             unique: true,
         },
         const_date: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.DATE,
             allowNull: false,
         },
         type: {
