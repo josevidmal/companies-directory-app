@@ -110,7 +110,7 @@ const AddCompanyForm = () => {
                     />
                 </Form.Group>
                 {requiredField && (
-                    <p>{requiredField}</p>
+                    <p style={{ color: "red"}}>{requiredField}</p>
                 )}
                 <Button
                     type="sumbit"
@@ -120,7 +120,7 @@ const AddCompanyForm = () => {
                 </Button>
             </Form>
             {error && (
-                <p>{error}</p>
+                <p style={{ color: "red"}}>{error}</p>
             )}
         </section>
     );

@@ -77,18 +77,16 @@ const Home = (props) => {
                                             >
                                                 Editar
                                             </Button>
-                                            
-                                                <Button
-                                                    type="button"
-                                                    variant="danger"
-                                                    onClick={() => {
-                                                        setCompanyId(company.id)
-                                                        setShowDeleteModal(true)
-                                                    }}
-                                                >
-                                                    Eliminar
-                                                </Button>
-                                            
+                                            <Button
+                                                type="button"
+                                                variant="danger"
+                                                onClick={() => {
+                                                    setCompanyId(company.id)
+                                                    setShowDeleteModal(true)
+                                                }}
+                                            >
+                                                Eliminar
+                                            </Button>
                                         </td>
                                     </tr>
                                 )
