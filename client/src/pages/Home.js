@@ -61,7 +61,7 @@ const Home = (props) => {
                                     <tr key={company.id}>
                                         <td>{company.name}</td>
                                         <td>{company.type}</td>
-                                        <td>{company.const_date}</td>
+                                        <td>{new Date(company.const_date).toLocaleDateString('es-MX', { timeZone: 'UTC' })}</td>
                                         <td>
                                             <Button 
                                                 type="button" 
@@ -69,7 +69,7 @@ const Home = (props) => {
                                                 onClick={() => {
                                                     setCompanyId(company.id)
                                                     setCompanyName(company.name)
-                                                    setCompanyConstDate(new Date(company.const_date).toISOString().slice(0, 10))
+                                                    setCompanyConstDate(company.const_date.slice(0, 10))
                                                     setCompanyType(company.type)
                                                     setCompanyComments(company.comments)
                                                     setShowUpdateModal(true)
