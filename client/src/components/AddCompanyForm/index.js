@@ -40,6 +40,7 @@ const AddCompanyForm = () => {
             const company = await response.json();
             console.log(company);
             setShowAlert(true);
+            window.setTimeout(() => {window.location.reload()}, 3000);
         } catch (err) {
             console.error(err);
             setError("No fue posible añadir la empresa!");
@@ -51,7 +52,7 @@ const AddCompanyForm = () => {
             type: '',
             comments: '',
         });
-    }
+    };
 
     return (
         <section>
@@ -69,8 +70,8 @@ const AddCompanyForm = () => {
                     <Form.Control 
                         name="name"
                         type="text"
-                        onChange={handleInputChange}
                         value={companyFormData.name}
+                        onChange={handleInputChange}
                     />
                 </Form.Group>
 

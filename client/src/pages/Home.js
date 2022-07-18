@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Table, Container, Modal, Tab } from 'react-bootstrap';
-import { getAllCompanies, deleteCompany } from '../utils/API';
+import { Button, Table, Modal } from 'react-bootstrap';
+import { getAllCompanies } from '../utils/API';
 import AddCompanyForm from '../components/AddCompanyForm/index';
+import UpdateCompanyForm from '../components/UpdateCompanyForm/index';
+import DeleteCompanyForm from '../components/DeleteCompanyForm/index';
 
 const Home = (props) => {
     const [companiesList, setCompaniesList] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [showUpdateModal, setShowUpdateModal] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+    const [companyId, setCompanyId] = useState('');
+    const [companyName, setCompanyName] = useState('');
+    const [companyConstDate, setCompanyConstDate] = useState('');
+    const [companyType, setCompanyType] = useState('');
+    const [companyComments, setCompanyComments] = useState('');
 
     useEffect(() => {
         const getCompaniesList = async () => {
@@ -24,19 +34,6 @@ const Home = (props) => {
         };
         getCompaniesList();
     }, []);
-
-    const handleDeleteCompany = async (companyId) => {
-        try {
-            const response = await deleteCompany(companyId);
-
-            if (!response.ok) {
-                throw new Error("Something did not work!");
-            }
-
-        } catch (err) {
-            console.error(err);
-        }
-    };
 
     return (
         <section>
@@ -69,19 +66,29 @@ const Home = (props) => {
                                             <Button 
                                                 type="button" 
                                                 variant="primary"
-                                                /*onClick=""*/
+                                                onClick={() => {
+                                                    setCompanyId(company.id)
+                                                    setCompanyName(company.name)
+                                                    setCompanyConstDate(new Date(company.const_date).toISOString().slice(0, 10))
+                                                    setCompanyType(company.type)
+                                                    setCompanyComments(company.comments)
+                                                    setShowUpdateModal(true)
+                                                }}
                                             >
                                                 Editar
                                             </Button>
-                                            <span>
+                                            
                                                 <Button
                                                     type="button"
                                                     variant="danger"
-                                                    onClick={() => handleDeleteCompany(company.id)}
+                                                    onClick={() => {
+                                                        setCompanyId(company.id)
+                                                        setShowDeleteModal(true)
+                                                    }}
                                                 >
                                                     Eliminar
                                                 </Button>
-                                            </span>
+                                            
                                         </td>
                                     </tr>
                                 )
@@ -104,6 +111,53 @@ const Home = (props) => {
                 </Modal.Header>
                 <Modal.Body>
                     <AddCompanyForm />
+                </Modal.Body>
+            </Modal>
+
+            <Modal
+                {...props}
+                size="lg"
+                show={showUpdateModal}
+                onHide={() => setShowUpdateModal(false)}
+                aria-labelledby="update-company-modal"
+                centered
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Editar Empresa</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <UpdateCompanyForm 
+                        id={companyId}
+                        name={companyName} 
+                        const_date={companyConstDate} 
+                        type={companyType} 
+                        comments={companyComments}
+                    />
+                </Modal.Body>
+            </Modal>
+
+            <Modal
+                {...props}
+                size="lg"
+                show={showDeleteModal}
+                onHide={() => setShowDeleteModal(false)}
+                aria-labelledby="delete-company-modal"
+                centered
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Eliminar Empresa</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <DeleteCompanyForm 
+                        id={companyId}
+                    />
+                    <Button
+                        type="button"
+                        variant="secondary"
+                        onClick={() => setShowDeleteModal(false)}
+                    >
+                        Cancelar
+                    </Button>
                 </Modal.Body>
             </Modal>
         </section>
