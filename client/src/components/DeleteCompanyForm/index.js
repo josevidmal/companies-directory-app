@@ -23,9 +23,11 @@ const DeleteCompanyForm = (props) => {
     };
 
     return (
-        <section>
-            <Card>
+        <section id="delete-comp-container" className="containers">
+            <Card id="delete-comp-card" className="cards">
                 <Alert
+                    id="delete-comp-alert" 
+                    className="alerts"
                     dismissible
                     onClose={() => setShowAlert(false)}
                     show={showAlert}
@@ -33,11 +35,13 @@ const DeleteCompanyForm = (props) => {
                 >
                     La empresa ha sido eliminada!
                 </Alert>
-                <Card.Body>
-                    <Card.Text>
+                <Card.Body id="delete-comp-card-body" className="cards-body">
+                    <Card.Text id="delete-comp-card-text" className="cards-text">
                         ¿Estás seguro de que deseas eliminar esta empresa?
                     </Card.Text>
                     <Button
+                        id="accept-delete-btn"
+                        className="btns"
                         type="button"
                         variant="danger"
                         onClick={() => handleDeleteCompany(props.id)}
@@ -47,7 +51,7 @@ const DeleteCompanyForm = (props) => {
                 </Card.Body>
             </Card>
             {error && (
-                <p>{error}</p>
+                <p className="errors-msg">{error}</p>
             )}
         </section>
     )

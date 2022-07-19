@@ -66,7 +66,7 @@ const Home = (props) => {
                                         <td className="comp-table-dates">{new Date(company.const_date).toLocaleDateString('es-MX', { timeZone: 'UTC' })}</td>
                                         <td className="comp-table-actions">
                                             <Button
-                                                className="comp-table-btns" 
+                                                className="btns comp-table-btns" 
                                                 type="button" 
                                                 variant="primary"
                                                 onClick={() => {
@@ -81,7 +81,7 @@ const Home = (props) => {
                                                 Editar
                                             </Button>
                                             <Button
-                                                className="comp-table-btns"
+                                                className="btns comp-table-btns"
                                                 type="button"
                                                 variant="danger"
                                                 onClick={() => {
