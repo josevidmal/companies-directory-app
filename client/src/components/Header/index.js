@@ -4,8 +4,8 @@ const Header = () => {
 
 
     return (
-        <header>
-            <h1>Directorio de Empresas</h1>
+        <header id="header-container" className="containers">
+            <h1 id="header-title" className="headings">Directorio de Empresas</h1>
         </header>
     );
 };

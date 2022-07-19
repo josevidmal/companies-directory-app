@@ -36,34 +36,37 @@ const Home = (props) => {
     }, []);
 
     return (
-        <section>
-            <Button 
+        <section id="home-container" className="containers">
+            <Button
+                id="add-company-btn"
+                className="btns"
                 type="button" 
                 variant="primary"
                 onClick={() => setShowModal(true)}
             >
                 Agregar Empresa
             </Button>
-            <div>
+            <div id="table-container" className="containers">
                 {companiesList.length ? (
-                    <Table striped bordered variant="dark">
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Tipo de Empresa</th>
-                                <th>Fecha de Constitución</th>
-                                <th>Acciones</th>
+                    <Table id="companies-table" className="tables" striped bordered variant="dark">
+                        <thead id="comp-table-header" className="tables-headers">
+                            <tr id="comp-table-headings-row" className="tables-headings-rows">
+                                <th id="comp-table-name-heading" className="table-headings">Nombre</th>
+                                <th id="comp-table-type-heading" className="table-headings">Tipo de Empresa</th>
+                                <th id="comp-table-date-heading" className="table-headings">Fecha de Constitución</th>
+                                <th id="comp-table-actions-heading" className="table-headings">Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="comp-table-body" className="tables-body">
                             {companiesList.map((company) => {
                                 return (
-                                    <tr key={company.id}>
-                                        <td>{company.name}</td>
-                                        <td>{company.type}</td>
-                                        <td>{new Date(company.const_date).toLocaleDateString('es-MX', { timeZone: 'UTC' })}</td>
-                                        <td>
-                                            <Button 
+                                    <tr className="comp-table-body-rows" key={company.id}>
+                                        <td className="comp-table-names">{company.name}</td>
+                                        <td className="comp-table-types">{company.type}</td>
+                                        <td className="comp-table-dates">{new Date(company.const_date).toLocaleDateString('es-MX', { timeZone: 'UTC' })}</td>
+                                        <td className="comp-table-actions">
+                                            <Button
+                                                className="comp-table-btns" 
                                                 type="button" 
                                                 variant="primary"
                                                 onClick={() => {
@@ -78,6 +81,7 @@ const Home = (props) => {
                                                 Editar
                                             </Button>
                                             <Button
+                                                className="comp-table-btns"
                                                 type="button"
                                                 variant="danger"
                                                 onClick={() => {
@@ -93,10 +97,12 @@ const Home = (props) => {
                             })}
                         </tbody>
                     </Table>
-                    ) : <h2>Sin empresas...</h2>
+                    ) : <h2 id="no-companies-heading" className="headings">Sin empresas...</h2>
                 }
             </div>
             <Modal
+                id="add-comp-modal"
+                className="modals"
                 {...props}
                 size="lg"
                 show={showModal}
@@ -104,15 +110,17 @@ const Home = (props) => {
                 aria-labelledby="add-company-modal"
                 centered
             >
-                <Modal.Header closeButton>
-                    <Modal.Title>Agregar Empresa</Modal.Title>
+                <Modal.Header id="add-comp-modal-header" className="modals-headers" closeButton>
+                    <Modal.Title id="add-comp-modal-title" className="modals-titles">Agregar Empresa</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body id="add-comp-modal-body" className="modals-body">
                     <AddCompanyForm />
                 </Modal.Body>
             </Modal>
 
             <Modal
+                id="update-comp-modal"
+                className="modals"
                 {...props}
                 size="lg"
                 show={showUpdateModal}
@@ -120,10 +128,10 @@ const Home = (props) => {
                 aria-labelledby="update-company-modal"
                 centered
             >
-                <Modal.Header closeButton>
-                    <Modal.Title>Editar Empresa</Modal.Title>
+                <Modal.Header id="update-comp-modal-header" className="modals-headers" closeButton>
+                    <Modal.Title id="update-comp-modal-title" className="modals-titles" >Editar Empresa</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body id="update-comp-modal-body" className="modals-body">
                     <UpdateCompanyForm 
                         id={companyId}
                         name={companyName} 
@@ -135,6 +143,8 @@ const Home = (props) => {
             </Modal>
 
             <Modal
+                id="delete-comp-modal"
+                className="modals"
                 {...props}
                 size="lg"
                 show={showDeleteModal}
@@ -142,14 +152,16 @@ const Home = (props) => {
                 aria-labelledby="delete-company-modal"
                 centered
             >
-                <Modal.Header closeButton>
-                    <Modal.Title>Eliminar Empresa</Modal.Title>
+                <Modal.Header id="delete-comp-modal-header" className="modals-headers" closeButton>
+                    <Modal.Title id="delete-comp-modal-title" className="modals-titles">Eliminar Empresa</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body id="delete-comp-modal-body" className="modals-body">
                     <DeleteCompanyForm 
                         id={companyId}
                     />
                     <Button
+                        id="cancel-delete-btn"
+                        className="btns"
                         type="button"
                         variant="secondary"
                         onClick={() => setShowDeleteModal(false)}
