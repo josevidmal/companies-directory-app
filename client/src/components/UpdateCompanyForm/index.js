@@ -48,9 +48,11 @@ const UpdateCompanyForm = (props) => {
     };
 
     return (
-        <section>
-            <Form onSubmit={handleFormSubmit}>
+        <section id="update-comp-container" className="containers">
+            <Form id="update-comp-form" className="forms" onSubmit={handleFormSubmit}>
                 <Alert 
+                    id="update-comp-alert" 
+                    className="alerts"
                     dismissible 
                     onClose={() => setShowAlert(false)} 
                     show={showAlert} 
@@ -58,9 +60,10 @@ const UpdateCompanyForm = (props) => {
                 >
                     Los datos de la empresa se han modificado!
                 </Alert>
-                <Form.Group>
-                    <Form.Label htmlFor="name">Nombre de la Empresa:</Form.Label>
+                <Form.Group className="forms-groups">
+                    <Form.Label className="forms-labels" htmlFor="name">Nombre de la Empresa:</Form.Label>
                     <Form.Control 
+                        className="forms-fields forms-inputs"
                         name="name"
                         type="text"
                         value={companyFormData.name}
@@ -68,9 +71,10 @@ const UpdateCompanyForm = (props) => {
                     />
                 </Form.Group>
 
-                <Form.Group>
-                    <Form.Label htmlFor="cons_date">Fecha de Constitución:</Form.Label>
+                <Form.Group className="forms-groups">
+                    <Form.Label className="forms-labels" htmlFor="cons_date">Fecha de Constitución:</Form.Label>
                     <Form.Control 
+                        className="forms-fields forms-inputs"
                         name="const_date"
                         type="date"
                         value={companyFormData.const_date}
@@ -78,9 +82,10 @@ const UpdateCompanyForm = (props) => {
                     />
                 </Form.Group>
 
-                <Form.Group>
-                    <Form.Label htmlFor="type">Tipo de Empresa:</Form.Label>
+                <Form.Group className="forms-groups">
+                    <Form.Label className="forms-labels" htmlFor="type">Tipo de Empresa:</Form.Label>
                     <Form.Select 
+                        className="forms-fields forms-selects"
                         name="type"
                         defaultValue={props.type}
                         onChange={handleInputChange}
@@ -92,9 +97,10 @@ const UpdateCompanyForm = (props) => {
                     </Form.Select>
                 </Form.Group>
 
-                <Form.Group>
-                    <Form.Label htmlFor="comments">Comentarios</Form.Label>
+                <Form.Group className="forms-groups">
+                    <Form.Label className="forms-labels" htmlFor="comments">Comentarios</Form.Label>
                     <Form.Control 
+                        className="forms-fields forms-textareas"
                         as="textarea"
                         rows={4} 
                         name="comments"
@@ -103,7 +109,7 @@ const UpdateCompanyForm = (props) => {
                     />
                 </Form.Group>
                 {requiredField && (
-                    <p style={{ color: "red"}}>{requiredField}</p>
+                    <p className="req-fields-msg" style={{ color: "red"}}>{requiredField}</p>
                 )}
                 <Button
                     type="sumbit"
@@ -113,7 +119,7 @@ const UpdateCompanyForm = (props) => {
                 </Button>
             </Form>
             {error && (
-                <p style={{ color: "red"}}>{error}</p>
+                <p className="errors-msg" style={{ color: "red"}}>{error}</p>
             )}
         </section>
     );

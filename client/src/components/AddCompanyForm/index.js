@@ -58,7 +58,8 @@ const AddCompanyForm = () => {
         <section id="add-comp-container" className="containers">
             <Form id="add-comp-form" className="forms" onSubmit={handleFormSubmit}>
                 <Alert 
-                    id="add-comp-alert" className="alerts"
+                    id="add-comp-alert" 
+                    className="alerts"
                     dismissible 
                     onClose={() => setShowAlert(false)} 
                     show={showAlert} 
@@ -69,7 +70,7 @@ const AddCompanyForm = () => {
                 <Form.Group className="forms-groups">
                     <Form.Label className="forms-labels" htmlFor="name">Nombre de la Empresa:</Form.Label>
                     <Form.Control
-                        className="forms-fields" 
+                        className="forms-inputs" 
                         name="name"
                         type="text"
                         value={companyFormData.name}
@@ -80,7 +81,7 @@ const AddCompanyForm = () => {
                 <Form.Group className="forms-groups">
                     <Form.Label className="forms-labels" htmlFor="cons_date">Fecha de Constitución:</Form.Label>
                     <Form.Control 
-                        className="forms-fields"
+                        className="forms-inputs"
                         name="const_date"
                         type="date"
                         value={companyFormData.const_date}
@@ -91,7 +92,7 @@ const AddCompanyForm = () => {
                 <Form.Group className="forms-groups">
                     <Form.Label className="forms-labels" htmlFor="type">Tipo de Empresa:</Form.Label>
                     <Form.Select 
-                        className="forms-fields"
+                        className="forms-selects"
                         name="type"
                         defaultValue=""
                         onChange={handleInputChange}
@@ -106,7 +107,7 @@ const AddCompanyForm = () => {
                 <Form.Group className="forms-groups">
                     <Form.Label className="forms-labels" htmlFor="comments">Comentarios</Form.Label>
                     <Form.Control 
-                        className="forms-fields"
+                        className="forms-textareas"
                         as="textarea"
                         rows={4} 
                         name="comments"
