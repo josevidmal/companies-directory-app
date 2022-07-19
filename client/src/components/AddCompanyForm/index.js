@@ -55,9 +55,10 @@ const AddCompanyForm = () => {
     };
 
     return (
-        <section>
-            <Form onSubmit={handleFormSubmit}>
+        <section id="add-comp-container" className="containers">
+            <Form id="add-comp-form" className="forms" onSubmit={handleFormSubmit}>
                 <Alert 
+                    id="add-comp-alert" className="alerts"
                     dismissible 
                     onClose={() => setShowAlert(false)} 
                     show={showAlert} 
@@ -65,9 +66,10 @@ const AddCompanyForm = () => {
                 >
                     La empresa ha sido agregada!
                 </Alert>
-                <Form.Group>
-                    <Form.Label htmlFor="name">Nombre de la Empresa:</Form.Label>
-                    <Form.Control 
+                <Form.Group className="forms-groups">
+                    <Form.Label className="forms-labels" htmlFor="name">Nombre de la Empresa:</Form.Label>
+                    <Form.Control
+                        className="forms-fields" 
                         name="name"
                         type="text"
                         value={companyFormData.name}
@@ -75,9 +77,10 @@ const AddCompanyForm = () => {
                     />
                 </Form.Group>
 
-                <Form.Group>
-                    <Form.Label htmlFor="cons_date">Fecha de Constitución:</Form.Label>
+                <Form.Group className="forms-groups">
+                    <Form.Label className="forms-labels" htmlFor="cons_date">Fecha de Constitución:</Form.Label>
                     <Form.Control 
+                        className="forms-fields"
                         name="const_date"
                         type="date"
                         value={companyFormData.const_date}
@@ -85,23 +88,25 @@ const AddCompanyForm = () => {
                     />
                 </Form.Group>
 
-                <Form.Group>
-                    <Form.Label htmlFor="type">Tipo de Empresa:</Form.Label>
+                <Form.Group className="forms-groups">
+                    <Form.Label className="forms-labels" htmlFor="type">Tipo de Empresa:</Form.Label>
                     <Form.Select 
+                        className="forms-fields"
                         name="type"
                         defaultValue=""
                         onChange={handleInputChange}
                     >
-                        <option value=""></option>
-                        <option value="Distribuidor">Distribuidor</option>
-                        <option value="Mayorista">Mayorista</option>
-                        <option value="Usuario Final">Usuario Final</option>
+                        <option className="forms-options" value=""></option>
+                        <option className="forms-options" value="Distribuidor">Distribuidor</option>
+                        <option className="forms-options" value="Mayorista">Mayorista</option>
+                        <option className="forms-options" value="Usuario Final">Usuario Final</option>
                     </Form.Select>
                 </Form.Group>
 
-                <Form.Group>
-                    <Form.Label htmlFor="comments">Comentarios</Form.Label>
+                <Form.Group className="forms-groups">
+                    <Form.Label className="forms-labels" htmlFor="comments">Comentarios</Form.Label>
                     <Form.Control 
+                        className="forms-fields"
                         as="textarea"
                         rows={4} 
                         name="comments"
@@ -110,9 +115,11 @@ const AddCompanyForm = () => {
                     />
                 </Form.Group>
                 {requiredField && (
-                    <p style={{ color: "red"}}>{requiredField}</p>
+                    <p className="req-fields-msg" style={{ color: "red"}}>{requiredField}</p>
                 )}
                 <Button
+                    id="add-comp-form-btn"
+                    className="btns"
                     type="sumbit"
                     variant="success"
                 >
@@ -120,7 +127,7 @@ const AddCompanyForm = () => {
                 </Button>
             </Form>
             {error && (
-                <p style={{ color: "red"}}>{error}</p>
+                <p className="errors-msg" style={{ color: "red"}}>{error}</p>
             )}
         </section>
     );
