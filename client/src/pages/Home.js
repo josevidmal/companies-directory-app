@@ -68,7 +68,7 @@ const Home = (props) => {
                                             <Button
                                                 className="btns comp-table-btns" 
                                                 type="button" 
-                                                variant="primary"
+                                                variant="success"
                                                 onClick={() => {
                                                     setCompanyId(company.id)
                                                     setCompanyName(company.name)

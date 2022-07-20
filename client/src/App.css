@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(to right, rgb(255, 208, 0), rgb(255, 226, 98));
-    border-bottom: solid 5px black;
+    border-bottom: solid 5px rgb(84, 84, 84);
 }
 
 #header-title {
@@ -19,8 +19,45 @@
 
 #main-container {
     width: 100%;
-    display: flex;
     background-color: white;
+}
+
+#home-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#add-company-btn {
+    margin: 20px 0px 10px 0px;
+}
+
+#table-container {
+    flex-basis: 98%;
+    margin: 10px 0px;
+}
+
+#companies-table {
+    font-size: 10px;
+    table-layout: fixed;
+}
+
+.comp-table-names, .comp-table-types, .comp-table-dates, .comp-table-actions {
+    word-wrap: break-word;
+}
+
+.comp-table-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.comp-table-btns {
+    font-size: 10px;
+    flex-basis: 100%;
+    padding: 6px;
 }
 
 #footer-container {
