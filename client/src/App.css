@@ -60,6 +60,10 @@
     padding: 6px;
 }
 
+.forms-groups, #add-comp-form-btn, #update-comp-form-btn, #delete-comp-card {
+    margin-bottom: 10px;
+}
+
 #footer-container {
     width: 100%;
     height: 10em;
@@ -96,4 +100,65 @@
 
 .footer-links:visited, .footer-links:active {
     color: none;
+}
+
+@media screen and (min-width: 576px) {
+
+    #companies-table {
+        font-size: 12px;
+    }
+    
+    .comp-table-actions {
+        justify-content: space-around;
+    }
+    
+    .comp-table-btns {
+        font-size: 12px;
+        flex-basis: 45%;
+        padding: 8px 4px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    #add-company-btn {
+        font-size: 20px;
+    }
+    
+    #companies-table {
+        font-size: 14px;
+    }
+    
+    .comp-table-btns {
+        font-size: 14px;
+        flex-basis: 40%;
+        padding: 10px 6px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    #add-company-btn {
+        font-size: 22px;
+    }
+    
+    #companies-table {
+        font-size: 16px;
+    }
+    
+    .comp-table-btns {
+        font-size: 16px;
+        padding: 6px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    #companies-table {
+        font-size: 18px;
+    }
+    
+    .comp-table-btns {
+        font-size: 18px;
+    }
 }

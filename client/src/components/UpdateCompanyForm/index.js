@@ -98,7 +98,7 @@ const UpdateCompanyForm = (props) => {
                 </Form.Group>
 
                 <Form.Group className="forms-groups">
-                    <Form.Label className="forms-labels" htmlFor="comments">Comentarios</Form.Label>
+                    <Form.Label className="forms-labels" htmlFor="comments">Comentarios:</Form.Label>
                     <Form.Control 
                         className="forms-fields forms-textareas"
                         as="textarea"
@@ -112,6 +112,8 @@ const UpdateCompanyForm = (props) => {
                     <p className="req-fields-msg" style={{ color: "red"}}>{requiredField}</p>
                 )}
                 <Button
+                    id="update-comp-form-btn"
+                    className="btns"
                     type="sumbit"
                     variant="success"
                 >

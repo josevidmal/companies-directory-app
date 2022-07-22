@@ -105,7 +105,7 @@ const AddCompanyForm = () => {
                 </Form.Group>
 
                 <Form.Group className="forms-groups">
-                    <Form.Label className="forms-labels" htmlFor="comments">Comentarios</Form.Label>
+                    <Form.Label className="forms-labels" htmlFor="comments">Comentarios:</Form.Label>
                     <Form.Control 
                         className="forms-fields forms-textareas"
                         as="textarea"
