@@ -86,6 +86,7 @@ const Home = (props) => {
                                                 variant="danger"
                                                 onClick={() => {
                                                     setCompanyId(company.id)
+                                                    setCompanyName(company.name)
                                                     setShowDeleteModal(true)
                                                 }}
                                             >
@@ -158,6 +159,7 @@ const Home = (props) => {
                 <Modal.Body id="delete-comp-modal-body" className="modals-body">
                     <DeleteCompanyForm 
                         id={companyId}
+                        name={companyName}
                     />
                     <Button
                         id="cancel-delete-btn"

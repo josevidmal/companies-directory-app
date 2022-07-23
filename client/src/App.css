@@ -29,6 +29,10 @@
     flex-wrap: wrap;
 }
 
+.btns:active, .btns:focus, .btns:visited {
+    box-shadow: none;
+}
+
 #add-company-btn {
     margin: 20px 0px 10px 0px;
 }
@@ -41,6 +45,7 @@
 #companies-table {
     font-size: 10px;
     table-layout: fixed;
+    box-shadow: 5px 10px 8px gray;
 }
 
 .comp-table-names, .comp-table-types, .comp-table-dates, .comp-table-actions {
@@ -62,6 +67,10 @@
 
 .forms-groups, #add-comp-form-btn, #update-comp-form-btn, #delete-comp-card {
     margin-bottom: 10px;
+}
+
+#add-comp-form-btn, #update-comp-form-btn, #accept-delete-btn, #cancel-delete-btn {
+    width: 130px;
 }
 
 #footer-container {

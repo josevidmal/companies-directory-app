@@ -37,7 +37,7 @@ const DeleteCompanyForm = (props) => {
             <Card id="delete-comp-card" className="cards">
                 <Card.Body id="delete-comp-card-body" className="cards-body">
                     <Card.Text id="delete-comp-card-text" className="cards-text">
-                        ¿Estás seguro de que deseas eliminar esta empresa?
+                        ¿Estás seguro de que deseas eliminar <span style={{ color: "red" }}>{props.name}</span> del directorio de empresas?
                     </Card.Text>
                     <Button
                         id="accept-delete-btn"
