@@ -52,7 +52,7 @@
     word-wrap: break-word;
 }
 
-.comp-table-actions {
+.table-btns-div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -117,7 +117,7 @@
         font-size: 12px;
     }
     
-    .comp-table-actions {
+    .table-btns-div {
         justify-content: space-around;
     }
     

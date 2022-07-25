@@ -65,33 +65,35 @@ const Home = (props) => {
                                         <td className="comp-table-types">{company.type}</td>
                                         <td className="comp-table-dates">{new Date(company.const_date).toLocaleDateString('es-MX', { timeZone: 'UTC' })}</td>
                                         <td className="comp-table-actions">
-                                            <Button
-                                                className="btns comp-table-btns" 
-                                                type="button" 
-                                                variant="success"
-                                                onClick={() => {
-                                                    setCompanyId(company.id)
-                                                    setCompanyName(company.name)
-                                                    setCompanyConstDate(company.const_date.slice(0, 10))
-                                                    setCompanyType(company.type)
-                                                    setCompanyComments(company.comments)
-                                                    setShowUpdateModal(true)
-                                                }}
-                                            >
-                                                Editar
-                                            </Button>
-                                            <Button
-                                                className="btns comp-table-btns"
-                                                type="button"
-                                                variant="danger"
-                                                onClick={() => {
-                                                    setCompanyId(company.id)
-                                                    setCompanyName(company.name)
-                                                    setShowDeleteModal(true)
-                                                }}
-                                            >
-                                                Eliminar
-                                            </Button>
+                                            <div className="table-btns-div">
+                                                <Button
+                                                    className="btns comp-table-btns" 
+                                                    type="button" 
+                                                    variant="success"
+                                                    onClick={() => {
+                                                        setCompanyId(company.id)
+                                                        setCompanyName(company.name)
+                                                        setCompanyConstDate(company.const_date.slice(0, 10))
+                                                        setCompanyType(company.type)
+                                                        setCompanyComments(company.comments)
+                                                        setShowUpdateModal(true)
+                                                    }}
+                                                >
+                                                    Editar
+                                                </Button>
+                                                <Button
+                                                    className="btns comp-table-btns"
+                                                    type="button"
+                                                    variant="danger"
+                                                    onClick={() => {
+                                                        setCompanyId(company.id)
+                                                        setCompanyName(company.name)
+                                                        setShowDeleteModal(true)
+                                                    }}
+                                                >
+                                                    Eliminar
+                                                </Button>
+                                            </div>
                                         </td>
                                     </tr>
                                 )
